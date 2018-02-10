@@ -1,0 +1,4 @@
+nltk==3.2.5
+numpy==1.13.3
+svgwrite==1.1.12
+svgpathtools==1.3.2

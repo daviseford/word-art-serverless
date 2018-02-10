@@ -1,0 +1,832 @@
+The Project Gutenberg EBook of The Purple Cow!, by Gelett Burgess
+
+This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.  You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at www.gutenberg.org
+
+
+Title: The Purple Cow!
+
+Author: Gelett Burgess
+
+Release Date: December 12, 2009 [EBook #30656]
+
+Language: English
+
+
+*** START OF THIS PROJECT GUTENBERG EBOOK THE PURPLE COW! ***
+
+
+
+
+Produced by David Edwards, Anne Storer, and the Online
+Distributed Proofreading Team at http://www.pgdp.net (This
+file was produced from images generously made available
+by The Internet Archive)
+
+
+
+
+
+
+
+ Transcriber's Note:
+ Text within {xx} following ^ = text inserted above the line.
+
+
+
+
+
+ Published by William Doxey, at the Sign of the Lark, San Francisco.
+
+ Copyright.
+
+
+
+
+The Lark Book I., Nos. 1-12, with Table of Contents and Press Comments;
+bound in canvas, with a cover design (The Piping Faun) by Bruce Porter,
+painted in three colors. Price, 3.00, post-paid.
+
+
+
+_NOTES ON THE BIRTH OF THE LARK_
+
+_Boston Herald._--"The pictures and rhymes in _The Lark_ rank with
+the most remarkable things done for children since the days of Mother
+Goose."
+
+_Boston Budget._--"_The Lark_ is a reaction against the decadent spirit.
+It is blithe, happy, full of the joy of life and the Greek within us--a
+herald of the dawn of the new century."
+
+_Boston Commonwealth._--"Everything in _The Lark_ is clever--some, we
+may be permitted to add, cleverer than the rest."
+
+_New York Critic._--"The faddists have produced some extraordinary
+things in the way of literature, but nothing more freakish has made its
+appearance in the last half-century than _The Lark_."
+
+_New York Tribune._--"It is perhaps one-fourth a monthly periodical and
+three-fourths an escapade. _The Lark_ ought really to be called 'The
+Goose.'"
+
+_New York Herald._--"The current number of _The Lark_ is, if possible,
+more curious, more quaint, more preposterously humorous, and more
+original than its predecessors. It is entirely unlike any other
+publication."
+
+_Richmond Times._--"We do not understand upon what the editor of
+_The Lark_ bases anticipation of interest and consequent demand."
+
+_Philadelphia Times._--"The young men who publish _The Lark_ have ideas
+of their own. _The Lark_ is smart and funny in a way quite its own, and
+it is also capable of serious flights and of musical notes clear enough
+to be heard across the continent."
+
+_Cincinnati Commercial Gazette._--"The worst thing about it being that
+it is all too brief."
+
+_Jersey City Chronicle._--"Every line in it is well worth perusal."
+
+_St. Paul Globe._--"_The Lark_ partakes of the prevalent temper of life
+on the Pacific Coast, where the don't-care mood of the West takes an
+especially sunny and cheerful turn, and life looks a bigger joke than
+elsewhere in the Union."
+
+_St. Louis Mirror._--"_The Lark_ continues to be odd and ridiculous. Its
+humor is quite unlike any other humor ever seen in this country. There
+are good men with good pens working on _The Lark_."
+
+_Kansas City Star._--"_The Lark_ seems to have attained a distinction
+hitherto considered impossible in the unconventional. It seems really
+original. It succeeds in holding in captivity the unexpected."
+
+_Los Angeles: The Land of Sunshine._--"It is unlike anything nearer to
+hand than 'Alice in Wonderland.'"
+
+
+#Lark Posters.#--The full set of Eight Posters for THE LARK will be sent
+post-paid for $2.00. The Lark Posters are printed from wooden blocks,
+all but the first two having been cut by the artist.
+
+ May,  1895   _The Piping Faun_     Bruce Porter
+ Aug., 1895   _Mother and Child_    Florence Lundborg
+ Nov., 1895   _Mt. Tamalpais_       Florence Lundborg
+ Feb., 1896   _Robin Hood_          Florence Lundborg
+ May,  1896   _The Oread_           Florence Lundborg
+ Aug., 1896   _Pan Pipes_           Florence Lundborg
+ Nov., 1896   _Redwood_             Florence Lundborg
+ Feb., 1897   _Sunrise_             Florence Lundborg
+
+
+_Published by_ WM. DOXEY, _at the Sign of the Lark, San Francisco._
+
+
+
+
+CONTENTS
+
+DEDICATION.
+
+
+  1. A LEGEND, Rare and Superfine,
+     Cribbed, some will say, from FRANKENSTEIN,
+     (It _is_ a little in that line).
+
+  2. MY FEET; a Memoir, with a Phase
+     Resembling some Equestrian Ways.
+
+  3. TH' INVISIBLE BRIDGE; a sort of Fable,--
+     Please understand, if you're able.
+
+  4. THE RUNAWAY TRAIN; a weird Creation
+     Of Fancy and Imagination,
+     Meant for the Rising Generation.
+
+  5. On CITY FLORA, semi-culled
+     By one whose Fame was somewhat dulled.
+
+  6. ASTONISHMENT; depicting how
+     Peculiar is the Verdant Bough.
+
+  7. The PURPLE COW'S projected Feast;
+     Reflections on a Mythic Beast
+     That's quite Remarkable, at least.
+
+  8. MY HOUSE, and how I make MY BED;
+     A Nocturne for a Sleepy-Head.
+
+  9. On DIGITAL EXTREMITIES;
+     A Poem (and a gem it is!)
+
+ 10. THE GOOP; constructed on a Plan
+     Beyond the Intellect of Man.
+
+ 11. PARISIAN NECTAR for the Gods;
+     A little thick--but what's the odds?
+
+ 12. THE FLYING HOUSE; a Narrative
+     Of Sanity comparative,
+     And nothing much declarative.
+             (_Permission of S. F. Examiner._)
+
+ 13. The Story of the GIANT HORSE;
+     'T is quite improbable, of course.
+
+ 14. _WHAT_ SMITH _TRIED TO_ BELIEVE; a Study
+     That will appeal to anybuddy.
+
+ 15. The TOWEL AND THE DOOR,--ah well!
+     I'll not attempt the Tale to tell.
+
+ 16. The TOWEL AND THE DOOR again!
+     The Story's told--is it in vain?
+
+ 17. The FOOTLESS FEAT of Mrs. Box
+     _Posteaque, fiat Nox!_
+
+ 18. And now, allow the PURPLE COW
+     To make her Bow.
+
+
+
+
+ TO THE
+ READERS OF "_THE LARK_"
+ WHO HAVE LAUGHED
+ THEY KNEW NOT WHY,
+ THESE INARTISTIC ABERRATIONS
+ ARE GRATEFULLY DEDICATED.
+                  GELETT BURGESS
+
+
+
+
+_THE PECULIAR HISTORY OF THE CHEWING-GUM MAN._
+
+
+    O Willie, an' Wallie, an' Huldy Ann,
+    They went an' built a big CHEWIN'-GUM MAN:
+    It was none o' your teenty little dots,
+    With pinhole eyes an' pencil-spots;
+    But this was a terribul big one--well,
+    'T was a'most as high as the Palace Hotel!
+    _It took 'em a year to chew the gum!!_
+    And Willie he done it all, 'cept some
+    That Huldy got her ma to chew,
+    By the time the head was ready to do.
+
+       *       *       *       *       *
+
+    Well, Willie he chewed it for days 'n' days;
+    They brung it to him in gret big drays;
+    An' fast as he got it good an' soft,
+    Then Wallie he come and carried it oft.
+    Then he'd roll it into a gret big ball,
+    _An' he made a-more'n a MILLION in all!_
+    Then Huldy Ann she spanked 'em flat
+    An' pinched an' poked, an' the like o' that,
+    Till she got it inter a gret big hunk--
+    My! didn't Huldy have the spunk!
+    And then she sliced one end half-way
+    To make the laigs ('cause they never stay
+    When you stick 'em on in a seprit piece--
+    Seems like the ends was made o' grease);
+    And she slit an arm right up each side,--
+    I couldn't a done it if I'd a tried!
+    O' course, her brothers they helped her, though,
+    An' rolled the arms an' laigs out, so
+    They all was smooth with roundin' bends
+    An' _chopped_ the fingers inter the ends!
+    An' when their mother had chewn the head,
+    She went an' _stuck_ it on, instead!
+
+    An' then, when the man was almost done,
+    They had an awful lots o' fun.
+    A-walkin' down his stummick was best
+    To make the buttons onter his vest!
+    They struck big cartwheels in him for eyes;
+    His eyes was both tremendous size;
+    His nose was a barrel--an' then beneath
+    They used a ladder, to make his teeth!
+    An' when he was layin' acrost the street
+    Along come their daddy, as white 's a sheet,--
+    He was skeert half outer his wits, I guess,
+    An' he didn't know whatter make o' the mess,--
+    But Huldy she up an' begun to coax
+    To have him down town, to skeer the folks!
+    So her dad he grabbed him offen the street,
+    An' Willie an' Wallie they took his feet,
+    An' they dragged him clean down to the Cogswell fountain,
+    An' stood him up as big as a mountain!
+    You'd orter seen him a-standin' there,
+    A-straddlin' Market street in the air!
+
+    Well, he stood up straight for a week 'n' a half
+    An' the folks, Gee! didn't they yell 'n' laff:
+    The boys clum up his laigs quite bold--
+    The gum was so soft they got good hold;
+    The cars run under him day an' night,
+    An' the people come miles to see the sight!
+    Well, after he'd stayed as stiff 's a post,
+    With his head on top o' the roofts almost,
+    The sun come outer the fog one day
+    An'--well, I guess you can see the way
+    That gret big feller begun to melt;--
+    _Imagine how Willie and Wallie felt!_
+    For first he cocked his head out some,
+    An' when the heat got inter the gum
+    He slowly waved his arms ahead
+    An' slanted forred, just like he was dead!
+
+ 
+
+    An' all day long he leaned an' bent
+    Till all expected he would have went
+    An' pitched right over. They roped the street
+    To keep the crowd away from his feet.
+    I tell yer he was a sight; my soul!
+    Twicet as high as a telegraft pole,
+    Wavin' his arms an' slumpin' his feet
+    An' a-starin' away down Market street.
+
+    Then, what did I tell yer--that blame old head
+    Their mother had made a-seprit, instead,--
+    It fell right off an' squashed a horse!
+    ('T was so soft, it didn't _kill_ him, o' course.)
+    When his hands got so they touched the ground
+    A hundred policemen they come around;
+    They stuck a cable-car to his feet,
+    An' one to his head, a goin' up street,
+    An' then they pulled him opposite ways,
+    An' they pulled him for days 'n' days 'n' days,
+    An' they drored him out so slim an' small
+    That he reached a _mile 'n' a half_, in all.
+
+    An' that was the end o' the CHEWIN'-GUM MAN
+    For Willie, an' Wallie, an' Huldy Ann.
+    They come along with an ax next day,
+    An' chopped him up, and guv him away.
+
+ 
+
+
+
+
+ 
+
+    My Feet they haul me 'round the House;
+      They hoist me up the Stairs;
+    I only have to steer them and
+      They ride me everywheres.
+
+
+
+
+ 
+
+    I'd never dare to walk across
+      A Bridge I could not see,
+    For quite afraid of falling off
+      I fear that I should be!
+
+
+
+
+_ADULT'S DEPARTMENT:_
+
+
+    Oh, Willie and Wallie and Pinkie Jane!
+    They run away with a Railroad Train!
+    'T was Wallie got up the ridiculous plan,--
+    'T was most as good as the Chewin'-Gum Man!
+    Wallie is terribul funny--My!
+    He can make up a face that would make you die,
+    An' when Pinkie Jane come down to the city
+    He tried to show off, for she's awful pretty.
+    So they all went over across the Bay,
+    To have a picnic, and spend the day.
+    At Sixteenth Street they got off the cars
+    A-grinnin' an' giggling so,--My Stars!
+    A Enormus Crowd begun to collect,
+    But nobuddy knew just what to expect.
+    Then up the track come a little spot,
+    An' nearer and nearer and NEARER it got,
+    And Willie and Wallie and Pinkie Jane
+    Stood right in the road of the Overland Train!!!
+    The folks on the platform begun to yell,
+    "_Look out!--get off!!_" an' the engine bell
+
+ 
+
+
+_THE RUNAWAY TRAIN_:
+
+    Was ringin' like mad,--but them children stood
+    As calm as if they was made of wood!
+    And a great big fat man yelled,--"_Oh Golly!
+    For Heaven's sakes, just look at Wallie!_"
+    As the train came thunderin' down the rail,
+    The wimmin all turned terribul pale.
+    But Wallie he stood there, stiff 's a soldier,
+    An' then (you remember what I told yer)
+    He made up a horribul face,--and whack!
+    He SCARED THE ENGINE RIGHT OFF'N THE TRACK!
+    An' the train jumped forreds an' squirmed around,
+    A-wrigglin' an' jigglin' over the ground;
+    And all the people they had to git,
+    For the blame old engine it had a fit!
+    But when the train got onto the track,
+    Them children they clum right onto its back,
+    And they tickled it so that all to once
+    It gave 'em a lot of shivers an' grunts,
+    And it humped itself way up in the air,
+    And p'raps it didn't give them a scare!
+
+ 
+
+
+_AN IMPOSSIBLE EPIC_:
+
+    Then it puffed an' puffed, a-faster an' faster,
+    While Wallie sat there like an old school-master,
+    A-drivin' that train till, I tell you what!
+    You no idea what a nerve he's got!
+    Willie he held on to Wallie, an' Jane
+    Held onto Willie with might and main.
+    Then they hitched along, like an old inch-worm,
+    With now a spazzum, and then a squirm;
+    But Willie and Wallie and Pinkie Jane,
+    They soon got sick o' that Railroad train!
+    But when they crawled to the last end car
+    To jump on the ground, where it wasn't far,
+    They got a heap worse off, instead,
+    For that nasty train, it stood on its head!
+    An' they all yelled, "Telegraft Huldy Ann,
+    And make her come as quick as she can.
+    We can't get off. Oh, hurry up, please!
+    What would we do if the thing should sneeze?"
+
+ 
+
+
+_SEQUEL TO THE CHEWING-GUM MAN_
+
+    I tell yer them children was in a fix
+    While that mad engine was doin' his tricks.
+    But the messenger-boy found Huldy Ann,
+    An' she said, "I'm glad that I ain't a man!
+    I'll show 'em how!" an' she crossed the Bay,
+    An' she see in a wink where the trouble lay.
+    An' she said, "You go, an' you telegraft back
+    For a load o' candy to block the track!"
+    An' when they sent it, she piled it high
+    With chocolate caramels, good ones,--My!
+    Peppermint drops and cocoanut cream,
+    Till it looked too good for a Christmas dream!
+    And the sun it melted and finished the job
+    Into one great elegant sticky gob!
+    So the train run into it lickety-split,
+    An' the cow-catcher stuck, when the engine hit,--
+    An' the tail o' the train flew up and threw
+    Them children into that caramel goo!
+    They fell clear in,--way over their head,
+    But Ann eat 'em out, an' sent 'em to bed!
+
+ 
+
+
+
+
+ 
+
+    There is a Theory some deny,
+      That Lamp Posts once were three foot high,
+    And a Little Boy was terrible strong,
+      And he stretched 'em out to 'leven foot long!
+
+
+
+
+ 
+
+    I picked some Leaves from off a Tree,
+      And then I nearly Fainted:
+    For somehow it Astonished me
+      To find they'd All been Painted!
+
+
+
+
+ 
+
+    I never saw a PURPLE COW, I never HOPE to see one;
+    But I can tell you, anyhow, I'd rather SEE than BE one!
+
+
+
+
+ 
+
+    My House is made of Graham Bread,
+      Except the ceiling 's made of White;
+    Of Angel Cake I make my Bed;
+      I eat my Pillow every night!
+
+ 
+
+    I'd rather have Fingers than Toes;
+    I'd rather have Ears than a Nose;
+        And as for my Hair,
+        I'm glad it's all there,
+    I'll be awfully sad when it goes!
+
+
+
+
+ 
+
+    Now you are what I call a GOOP!
+    A Co-tangent harmonious Loop
+    You appear to be facing due South
+    But O what have you done with your Mouth?
+
+
+
+
+ 
+
+    Many People seem to Think
+      Plaster o' Paris good to Drink:
+    Though conducive unto Quiet
+      I prefer another Diet!
+
+
+
+
+ 
+
+THE:FLYING:HOUSE
+
+Written and Illustrated by GELETT:BURGESS
+
+
+    O Willie an' Wallie, you better believe,
+    They had a circus on Christmas Eve
+    With Huldy Ann an' Pinkie Jane--
+    The folks imagined they'd went insane!
+    Them twins had an awfully narrow shave--
+    They nearly was killt, for they wouldn't behave!
+    Huldy's a winner! She hatched the scheme
+    On the day before Christmas; an' that there team--
+    That Willie an' Wallie--they worked like mad--
+    You've no idea what a time they had!
+    'Twas the day before Christmas, at half-past three,
+    When Huldy she up an' she says, says she:
+    "You Willie an' Wallie, you go in the yard
+    An' get that windmill--it won't be hard--
+    An' bring it an' put it on top of the house,
+    An' don't make no more noise than a mouse!
+    'For I know something I won't tell,
+    Nine little niggers in a peanut shell!'"
+    Well, the twins they knew when she said that,
+    Huldy wa' n't talkin' much through her hat.
+    So they worked an' they tugged for more 'n an hour,
+    'Till they got that windmill off'n the tower;
+    An' they hauled it up to the roof with ropes,
+    Way on the ridgepole, 'tween the slopes.
+
+ 
+
+ 
+
+    They was almost dead, it tired 'em so,
+    An' Will druv a splinter into his toe!
+    An' all this time both Pinkie Jane
+    An' Huldy was workin' with might an' main,
+    A-shuttin' the doors, an' the windows too,
+    An' stoppin' up cracks where the leaks come through.
+    An' when it was tight, she slipped inside
+    An' turned the gas on good an' wide!
+    An' she screamed, "Look out that you don't get smothered:
+    Climb up on the roof where I won't be bothered!"
+
+    When the house filled up with the gas inside,
+    It trembled an' jiggled from side to side;
+    An' when the gas filled it good an' full
+    The ole foundations began to pull;
+    Then Huldy she pushed it a little mite,
+    An' the house riz up in the air all right!
+    An' it riz an' riz like a ole balloon.
+    An' Ann got aboard of it none too soon;
+    For it flew away off up into the sky
+    With her holdin' on by her hands--Oh my!
+    But she clum on top, an' you'd oughter have seen
+    Them workin' that wheel like a flyin' machine!
+    Well, after they'd flew an hour or so
+    They came to a mountain all covered with snow,
+    An' there on the top they happened to see
+    A enermous great big Christmas tree!
+    Then Huldy steered 'em over the top,
+    An' they let down an anchor to make 'em stop;
+    An' Willie an' Wallie they yelled with glee,
+    An' jumped right into that Christmas tree!
+    They let down a ladder for them two girls
+    That didn't darst jump for spoilin' their curls!
+    They was toys an' games an' wagons an' dolls,
+    All trimmed with tinsel an' fol-de-rols!
+    For Santa Claus had just drove away,
+    An' Wallie he said that he seen the sleigh!
+    Well, when they'd eat all the candy they could,
+    They loaded their house with things up good.
+    (But they hurried for fear that the old man'd come back
+    An' catch 'em an' give 'em a larrupin' whack!)
+    Then they got on the roof, an' they cut the string
+    An' away they flew like everything!
+
+ 
+
+    The twins worked the wheel an' Huldy steered,
+    An' Pinkie clung tight--she was awfully skeered:
+    They got back home at half-past six,
+    But, oh! they got into a nawful fix!
+    For just as they sunk the house gave a lurch
+    An' they landed right on top of a church!
+    An' they punched a hole through the roof with the steeple,
+    To the great amazement of all of the people!
+    An' the toys fell out of that house in the air,
+    An' all the children in the town was there.
+    So every one got a present again
+    'Cept Willie an' Wallie an' Huldy an' Jane--
+    An' it served 'em right, don't you think? because
+    They'd stolen the presents from Santa Clause.
+
+ 
+
+
+
+
+ 
+
+    Once there was a GIANT HORSE,
+      That walked through all the Town,
+    A-stepping into all the Roofs,
+      And Smashing Houses down!
+
+
+
+
+ 
+
+WHAT:SMITH:TRIED:TO:BELIEVE _refused by_ ST NICHOLAS, BIBELOT,
+NEW:REVIEW, POLYNESIAN:MONITOR _and_ SAN FRANCISCO:CLIMAX
+
+Well, I come home late that night, near one o'clock, I reckon, and I
+undressed in the dark as per usual. When I gut into bed I thot it felt
+as tho sumbuddy hed bin there, and when I kicked out my leg sure enough
+there was sumbuddy there. Well, I thot Rats, what's the difference; I'll
+go to sleep, it's only a man. But I kinder could'nt sleep, so I got up
+and lit a cigaroot, and I saw the feller that was in bed with me wos
+dead. Well, I thot Rats, what's the difference, he wont git over to my
+side of the bed anyway; so I turned over and went to sleep. Well, I
+fired my cigaroot in ther paper-basket and went to sleep. Well, after
+a while I thot I smealed smoke, and it wasn't cigaroot smoke, but the
+basket was all afire, and burning like a editor's soul after death.
+Well, I thot Rats, what's the difference. Well, it looked so bright and
+comfortable I thot I'd get up and read. By this time one corner of the
+room was goin' like 4 o'clock, and it was nice and warm. After I'd read
+about ten minits, it got so hot I cuddent stand it, and I got up and
+went into ther next room. Well, I thot Rats, what's the difference.
+Well, in about a hour there was a big crowd outside of the house, and
+they was all yellin' Fire to beat the band. I looked out er winder.
+Jump, says the fireman, and I jumped. Then I walked off, and a feller
+says, says he, "You blame fool, you've bruk yer leg." Well, I thot Rats,
+what's the difference?
+
+
+
+
+ 
+
+    The Towel hangs upon the Wall,
+      And, somehow, I don't care at all!
+
+    The Door is open;--I must say
+      I rather fancy it that Way!
+
+ 
+
+          ,llaW eht nopu sgnah lewoT ehT
+    !lla ta erac t'nod I, wohemos,dnA
+
+           yas tsum I--;nepo si rooD ehT
+           !yaW taht ti ycnaf rehtar I
+
+
+
+
+_THE SOLES OF THE UNFORTUNATES._
+
+
+Likkery had but one leg[A] when I married him.[B] I did not realize what
+this meant {it meant 41 right-foot shoes [for he was extravagant (and I
+was economical[C]) to a degree] in his dressing closet} until he died.
+
+                                {I could not bear to throw
+                                {them away.
+                                {
+                                {The clerks asserted that all
+                                {their one-legged right-footed
+ I could not get rid of them    {customers wore
+                                {large sizes.[D]
+                                {
+                                {There were not weddings
+                                {enough to throw them all
+                                {after the carriages.
+
+
+Chapter II.
+
+[Sidenote: Mr. Silk _WAS_ a two-legged gentleman.]
+
+My second marriage WOULD have been happy, but my husband met with a
+distressing accident, which necessitated an amputation ^{of his right
+leg} of his wrong leg. So the collection increased.
+
+In spite of all my precautions, Mr. Silk's shoes would often be left
+pointing toward the bed.[E] How I suffered! At last Mr. Silk died. The
+day after the funeral, I made a procession of all the shoes--
+
+ ORDER:
+   1. Patent leathers
+   2. Brogans
+   3. Bluchers (small)
+   4. Bluchers (large)
+   5. Tan shoes
+   6. Slippers (carpet)
+   7. Congresses
+   8. Riding boots
+   9. Pumps
+
+Sixty-two right-foot shoes, ^{toe to heel,} they reached from my
+bedroom[F] to the stairs.
+
+I was in despair when a small-footed man named Box proposed to me. I
+looked at his feet and accepted him. (I was sure the shoes would fit.)
+
+       *       *       *       *       *
+
+As soon as he was asleep I approached his prostrate form (my axe was
+sharp {I ground it myself} and my mind was set).
+
+Sixty-two soles inspired me.[G] I struck the blow!--Then the HORROR of
+my deed seized me. The rest is too awful!
+
+
+NOTE: I had cut off the wrong foot!
+
+
+ [A] Left leg.
+
+ [B] Fool that I was.
+
+ [C] For he could get a pair at the same price as a single shoe.
+
+ [D] Likkery wore No. 3's.
+
+ [E] It is a common superstition among children that this encourages bad
+     dreams.
+
+ [F] Bay-window.
+
+ [G] I was determined they should at last be worn out.
+
+
+
+
+ 
+
+    Ah, yes, I wrote the "Purple Cow"--
+      I'm Sorry, now, I wrote it;
+      But I can tell you Anyhow
+    I'll Kill you if you Quote it!
+
+
+
+
+The Lark Book II., Nos. 13-24, with Table of Contents and EPILARK; bound
+in canvas, with cover design (Pan Pipes) by Florence Lundborg, painted
+in three colors. Price, 3.00, post-paid.
+
+
+
+_NOTES ON THE PASSING OF THE LARK_
+
+_Literary Review._--"Its ways were ways of pleasantness, and all its
+paths were peace. It had no enemies and all its friends were true ones.
+We see it go with a real regret and a feeling that we could have better
+spared a better paper."--CAROLYN WELLS.
+
+_New York Times._--"Regret moderately deep and thoroughly sincere will
+be felt all over the country, at the announcement that _The Lark_ has
+ceased publication. A considerable number of people could see no humor
+and less meaning in its songs, but thousands of others had keener eyes
+and ears, and looked and listened with delight."
+
+_Cincinnati Commercial Tribune._--"_The Lark_ is dead, and the _Epilark_
+has come and gone, leaving behind them only a haunting echo of joyous
+song and a love of living delicious to contemplate."
+
+_St. Paul Daily Globe._--"But the mood in which we turn the Japanese
+pages of the last _Lark_ is anything but flippant. It is something to
+have known youth and gayety, enthusiasm and a bravery which flies in the
+face of day, and now--something to have lost them. _The Lark_ has lived
+and now dies well, and, to some at least, the time of its irregular
+appearance will no longer be a red-letter day."
+
+_The Philosopher._--"And now _The Lark_ announces its end. It was the
+freshest, purest breath of air that ever blew across the atmosphere of
+letters."
+
+_London Times._--"So unique in literature and illustration, we are sorry
+to note that its publication is to be suspended. The bound volumes for
+the two years it has been running deserve a place in the libraries of
+all lovers of the odd and advanced in literature."
+
+_Paragraphs._--"No more shall its cool notes delight the tree-tops, and
+no longer may we follow in the footsteps of Vivette. It is a pity, of
+course; but what can you expect? Larks must be fed, and--no one thinks
+of feeding them."
+
+_Trenton Tribune._--"Its clever foolery shows how big a void was created
+when _The Lark_ decided to sing no more. _The Lark_ was the one new
+thing in junior magazinedom that did not outlive its welcome."
+
+_St. Louis Mirror._--"It smacked of Robert Louis Stevenson. It was
+'Alice in Wonderland' in picture. It was art through a crazy
+looking-glass. It was the realism of nonsense. The whole country laughed
+at the strange pictures with the brilliantly unintelligible verses. But
+much of it was not understood of the people who need diagrams. _The
+Lark_ was always too high in the blue for the many; but for those who
+might mount with him or to him--for those the magazinelet was published.
+Those enjoyed it; and now they regret it--for _The Lark_ is no more. It
+was so original that its death is its only unoriginality."
+
+
+#The Lark Almanac for 1899:#
+
+Being a collection of vagaries from THE LARK, with original designs by
+Porter Garnett; uniform in size with "The Purple Cow." Price, 50c.
+
+
+_Published by_ WM. DOXEY, _at the Sign of the Lark, San Francisco_
+
+
+
+
+    "Who'll be the Clerk!"
+    "I!" said _THE LARK_.
+
+
