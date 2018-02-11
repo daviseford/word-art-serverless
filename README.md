@@ -17,3 +17,4 @@ First, take care of the requirements:
 
 `sls plugin install -n serverless-python-requirements`
 
+`sls logs -f app --tail`

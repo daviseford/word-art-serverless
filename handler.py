@@ -63,39 +63,19 @@ def endpoint(event, context):
     :param opts: { "text": "", "color": "black" }
     :return: svg file
     """
+    try:
+        response = {
+            "statusCode": 200,
+            # "body": json.loads(event),
+        }
 
-    response = {
-        "statusCode": 200,
-        "body": json.loads(event),
-        # "body": 'asdasd'
-    }
-    # return response
+        data = event['body']
+        if 'text' not in data:
+            response["body"] = 'FUCK'
+        else:
+            paths = build_path_str(data['text'])
+            response['body'] = json.dumps({'event': event, 'svg_string': paths})
 
-    data = json.loads(event['body'])
-    if 'text' not in data:
-        response["body"] = 'FUCK'
         return response
-
-    output_opts = {
-        'filename': 'test1.svg',
-        'colors': 'red',
-        'node_colors': 'bb',
-    }
-    paths = build_path_str(data['text'])
-
-    # disvg(
-    #     paths=[paths],
-    #     nodes=[paths.point(0.0), paths.point(1.0)],
-    #     node_radii=[2, 2],
-    #
-    #     # text='Some sample text',
-    #     # text_path=Path(Line(start=(0 + 50), end=(100 + 50))),
-    #     # font_size=[5],
-    #     openinbrowser=False,
-    #     **output_opts
-    # )
-
-    # response['body'] = 'Done! Created %s' % output_opts['filename']
-    response['body'] = {'event': json.loads(event), 'svg_string': paths}
-
-    return response
+    except Exception as e:
+        return {'statusCode': '300', 'body': json.dumps({'error': e, 'event': event})}

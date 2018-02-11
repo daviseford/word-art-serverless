@@ -162,3 +162,4 @@ node_modules/
 .serverless
 .requirements
 .requirements.zip
+unzip_requirements.py
