@@ -3,38 +3,21 @@ try:
 except ImportError:
     pass
 
+from parse_sentences import split_into_sentences
 from svgpathtools import parse_path
 import json
-import nltk  # http://www.nltk.org/
-import string
+import traceback
+import logging
 
-
-def get_sentences(input_text):
-    try:
-        tokenizer_words = nltk.tokenize.TweetTokenizer()
-        tokens_sentences = [tokenizer_words.tokenize(x) for x in nltk.sent_tokenize(input_text)]
-        sentence_words = [filter_alpha(x) for x in tokens_sentences]
-        return sentence_words
-    except Exception as e:
-        raise e
-
-
-def filter_alpha(a_list):
-    stripped = [strip_non_alpha(x) for x in a_list]
-    return [x.lower() for x in stripped if x.isalpha() and x is not None]
-
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 def filter_length(list_of_sentence_lists):
     return [len(x) for x in list_of_sentence_lists]
 
 
-def strip_non_alpha(word):
-    exclusion_list = set(string.punctuation)
-    return ''.join(x for x in word if x not in exclusion_list)
-
-
 def get_sentence_lengths(input_text):
-    sentences = get_sentences(input_text)
+    sentences = split_into_sentences(input_text)
     return filter_length(sentences)
 
 
@@ -71,11 +54,19 @@ def endpoint(event, context):
 
         data = event['body']
         if 'text' not in data:
-            response["body"] = 'FUCK'
+            response["body"] = 'Missing text'
         else:
-            paths = build_path_str(data['text'])
-            response['body'] = json.dumps({'event': event, 'svg_string': paths})
+            paths = build_path_str(json.loads(data)['text'])
+            logger.info('paths')
+            logger.info(paths)
+            # TODO CONVERT PATHS TO STRING OR SVG OR SOMETHING, BUT THIS IS WORKING!!
+            response['body'] = paths
 
+        logger.info('response')
+        logger.info(response)
         return response
     except Exception as e:
-        return {'statusCode': '300', 'body': json.dumps({'error': e, 'event': event})}
+        traceback.print_exc()
+        return {'statusCode': 300, 'body': str(e)}
+
+
