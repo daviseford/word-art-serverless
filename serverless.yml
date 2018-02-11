@@ -1,0 +1,28 @@
+# serverless.yml
+service: word-art-serverless
+
+provider:
+  name: aws
+  runtime: python2.7
+  region: us-east-1
+  stage: dev
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    # call `pip install` inside a container - useful for packages that have native dependencies (scipy et-al)
+    dockerizePip: true
+
+    # aws lambda has an after-extraction size limit - with native dependencies we pass the limit quickly
+    # zip the requirements and extract them on the fly (see handler.py)
+    zip: true
+
+functions:
+  app:
+    handler: handler.endpoint
+    events:
+      - http: ANY /
+        cors: true
+        method: post

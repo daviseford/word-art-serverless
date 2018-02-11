@@ -1,6 +1,8 @@
-## Word Art
+## Word Art Serverless Endpoint
 
-### Setup (Python 2.7)
+### Requires Docker
+
+### Requires Python 2.7
 
 First, take care of the requirements:
 
@@ -11,13 +13,7 @@ First, take care of the requirements:
 
 ### Commands
 
-```
-word-art $ python svg.py -f txt/purple_cow.txt -c purple
+`sls deploy`
 
-txt/purple_cow.txt has 282 sentences
-
-Done! Created /word-art/output/purple_cow.svg
-```
-
-`-f` is mandatory
+`sls plugin install -n serverless-python-requirements`
 

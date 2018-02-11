@@ -155,13 +155,10 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+bin/
+include/
+node_modules/
 .idea/
-
-
-/output
-
-txt/making_a_pearl.txt
-txt/aa_sayings.txt
-txt/l*.txt
-
-sharon.sh
+.serverless
+.requirements
+.requirements.zip
