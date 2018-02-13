@@ -5,12 +5,14 @@ except ImportError:
 
 from parse_sentences import split_into_sentences
 from svgpathtools import parse_path
+from custom_svg import davis_disvg
 import json
 import traceback
 import logging
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
+
 
 def filter_length(list_of_sentence_lists):
     return [len(x) for x in list_of_sentence_lists]
@@ -34,39 +36,41 @@ def plot_lengths(array_of_ints):
     return path_str
 
 
-def build_path_str(text):
-    lens = get_sentence_lengths(text)
+def build_xml_str(json_obj):
+    lens = get_sentence_lengths(json_obj.get('text', 'Sample. Text.'))
     path_str = plot_lengths(lens)
-    return parse_path(path_str)
+    paths = parse_path(path_str)
+    return davis_disvg(
+        paths=paths,
+        node_colors=json_obj.get('node_colors', 'bb'),
+        colors=json_obj.get('colors', 'b'),
+        nodes=[paths.point(0.0), paths.point(1.0)],
+        node_radii=[2, 2],
+    )
 
 
 def endpoint(event, context):
     """
 
-    :param opts: { "text": "", "color": "black" }
+    :param opts: { "text": "", "colors": "black", "node_colors": "rr" }
     :return: svg file
     """
     try:
         response = {
             "statusCode": 200,
-            # "body": json.loads(event),
         }
 
         data = event['body']
         if 'text' not in data:
             response["body"] = 'Missing text'
         else:
-            paths = build_path_str(json.loads(data)['text'])
-            logger.info('paths')
-            logger.info(paths)
-            # TODO CONVERT PATHS TO STRING OR SVG OR SOMETHING, BUT THIS IS WORKING!!
-            response['body'] = paths
+            xml_string = build_xml_str(json.loads(data))
+            response['body'] = json.dumps({'xml': xml_string})
 
         logger.info('response')
         logger.info(response)
         return response
     except Exception as e:
+        logger.info(e)
         traceback.print_exc()
         return {'statusCode': 300, 'body': str(e)}
-
-
