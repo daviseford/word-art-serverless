@@ -4,6 +4,7 @@ except ImportError:
     pass
 
 import string
+import traceback
 
 from svgpathtools import parse_path
 
@@ -20,21 +21,20 @@ def get_sentences(input_text, split_dict, primary_color):
     :return: { 'color' : str , 'length': int }
     """
     try:
-        sentence_words = split_into_sentences(input_text)
+        array_of_sentences = split_into_sentences(input_text)
         default_color = primary_color
-
         store = []
-        for arr_of_words in sentence_words:
-            c = default_color
-            zz = [x.lower() for x in arr_of_words]
-            for x in split_dict['words']:
-                if x['k'].lower() in zz:
-                    c = split_dict['color']
+        for array_of_words in array_of_sentences:
+            segment_color = default_color
+            for highlight_word in split_dict['words']:
+                if highlight_word.lower() in array_of_words:
+                    segment_color = split_dict['color']
 
-            store.append({'color': c, 'length': len(arr_of_words)})
+            store.append({'color': segment_color, 'length': len(array_of_words)})
 
         return store
     except Exception as e:
+        traceback.print_exc()
         raise e
 
 
@@ -79,7 +79,7 @@ def plot_lengths(a):
     for obj in a:
 
         if obj['color'] != color:
-            print 'Changed colors from %s to %s' % (color, obj['color'])
+            # print 'Changed colors from %s to %s' % (color, obj['color'])
             last_point = fix_coordinate(str(parse_path(path_str).point(1.0)))
             new_path_start = 'M%s' % strip_parens(last_point)
             res = {'color': color, 'path': parse_path(path_str)}
@@ -126,4 +126,5 @@ def save_split_xml_to_s3(json_obj):
 
         return url
     except Exception as e:
+        traceback.print_exc()
         return 'Error building xml_string: %s' % str(e)

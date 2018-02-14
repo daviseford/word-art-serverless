@@ -5,6 +5,7 @@ except ImportError:
 
 import json
 import logging
+import traceback
 
 from svgpathtools import parse_path
 
@@ -63,16 +64,17 @@ def save_xml_to_s3(json_obj):
     try:
         paths = get_paths(json_obj['text'])
         node_colors = json_obj.get('node_colors', ['#FF4C4C', '#CC0000'])
-        colors = json_obj.get('color', ['#2C41FF'])
+        colors = json_obj.get('color', '#2C41FF')
         url = davis_disvg(
             paths=paths,
             node_colors=node_colors,
-            colors=colors,
+            colors=[colors],
             nodes=[paths.point(0.0), paths.point(1.0)],
             node_radii=[2, 2],
         )
         return url
     except Exception as e:
+        traceback.print_exc()
         return 'Error building xml_string: %s' % str(e)
 
 
@@ -106,7 +108,9 @@ def endpoint(event, context):
         }
 
         data = json.loads(event['body'])
+
         if 'text' not in data:
+            logger.info('Missing text')
             response['body'] = 'Missing text'
         elif satisfies_split_conditions(data):
             logger.info('Creating split SVG')
@@ -120,5 +124,7 @@ def endpoint(event, context):
         logger.info(response)
         return response
     except Exception as e:
+        logger.info('Incoming data for this error:')
+        logger.info(json.loads(event['body']))
         logger.info(e)
         return {'statusCode': 300, 'body': str(e)}
