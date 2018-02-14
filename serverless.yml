@@ -6,6 +6,13 @@ provider:
   runtime: python2.7
   region: us-east-1
   stage: dev
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:PutObject
+        - s3:GetObject
+        - s3:ListBucket
+      Resource: "arn:aws:s3:::word-art-svgs*"
 
 # https://github.com/UnitedIncome/serverless-python-requirements
 plugins:

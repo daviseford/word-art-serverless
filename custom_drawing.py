@@ -25,9 +25,15 @@ section by::
 """
 from __future__ import unicode_literals
 
-from svgwrite.container import SVG, Defs
+try:
+    import unzip_requirements
+except ImportError:
+    pass
+
+from svgwrite.container import SVG
 from svgwrite.elementfactory import ElementFactory
 from svgwrite.utils import pretty_xml
+from s3 import save_svg
 
 
 class Drawing(SVG, ElementFactory):
@@ -41,7 +47,7 @@ class Drawing(SVG, ElementFactory):
     to a complex, deeply nested collection of container elements and graphics elements.
     """
 
-    def __init__(self, filename="noname.svg", size=('100%', '100%'), **extra):
+    def __init__(self, filename="no_name.svg", size=('100%', '100%'), **extra):
         """
         :param string filename: filesystem filename valid for :func:`open`
         :param 2-tuple size: width, height
@@ -109,8 +115,15 @@ class Drawing(SVG, ElementFactory):
         return arr
 
     def save_str(self, pretty=False):
-        arr = self.write_str(pretty=pretty)
-        return ''.join(arr)
+        try:
+            arr = self.write_str(pretty=pretty)
+            return ''.join(arr)
+        except Exception as e:
+            raise e
 
-    # TODO ADD SAVE TO S3 AND RETURN LINK
-    # https://netdevops.me/2017/building-aws-lambda-with-python-s3-and-serverless/
+    def save_to_s3(self, pretty=False):
+        try:
+            xml_string = ''.join(self.write_str(pretty=pretty))
+            return save_svg(xml_string)
+        except Exception as e:
+            raise e

@@ -3,12 +3,13 @@ try:
 except ImportError:
     pass
 
-from parse_sentences import split_into_sentences
-from svgpathtools import parse_path
-from custom_svg import davis_disvg
 import json
-import traceback
 import logging
+
+from svgpathtools import parse_path
+
+from custom_svg import davis_disvg
+from parse_sentences import split_into_sentences
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -19,6 +20,11 @@ def filter_length(list_of_sentence_lists):
 
 
 def get_sentence_lengths(input_text):
+    """
+
+    :param input_text: str
+    :return:
+    """
     sentences = split_into_sentences(input_text)
     return filter_length(sentences)
 
@@ -36,17 +42,29 @@ def plot_lengths(array_of_ints):
     return path_str
 
 
-def build_xml_str(json_obj):
-    lens = get_sentence_lengths(json_obj.get('text', 'Sample. Text.'))
-    path_str = plot_lengths(lens)
-    paths = parse_path(path_str)
-    return davis_disvg(
-        paths=paths,
-        node_colors=json_obj.get('node_colors', 'bb'),
-        colors=json_obj.get('colors', 'b'),
-        nodes=[paths.point(0.0), paths.point(1.0)],
-        node_radii=[2, 2],
-    )
+def save_xml_to_s3(json_obj):
+    """
+
+    :param json_obj:
+    :return: str
+    """
+    try:
+        sentence_lengths = get_sentence_lengths(json_obj.get('text', 'a. couple. sentences.'))
+        logger.info('node_colors = %s' % json_obj['node_colors'])
+        node_colors = 'bb'
+        colors = json_obj.get('colors', 'b')
+        path_str = plot_lengths(sentence_lengths)
+        paths = parse_path(path_str)
+        url = davis_disvg(
+            paths=paths,
+            node_colors=node_colors,
+            colors=colors,
+            nodes=[paths.point(0.0), paths.point(1.0)],
+            node_radii=[2, 2],
+        )
+        return url
+    except Exception as e:
+        return 'Error building xml_string: %s' % str(e)
 
 
 def endpoint(event, context):
@@ -57,20 +75,19 @@ def endpoint(event, context):
     """
     try:
         response = {
-            "statusCode": 200,
+            'statusCode': 200,
         }
 
         data = event['body']
         if 'text' not in data:
-            response["body"] = 'Missing text'
+            response['body'] = 'Missing text'
         else:
-            xml_string = build_xml_str(json.loads(data))
-            response['body'] = json.dumps({'xml': xml_string})
+            url = save_xml_to_s3(json.loads(data))
+            response['body'] = json.dumps({'s3_url': url})
 
-        logger.info('response')
+        logger.info('Endpoint Response:')
         logger.info(response)
         return response
     except Exception as e:
         logger.info(e)
-        traceback.print_exc()
         return {'statusCode': 300, 'body': str(e)}
