@@ -117,7 +117,7 @@ def get_default_arguments(event_body):
     except:
         return defaults
 
-
+# TODO Add a "pre-parsed" parameter to speed this up
 def endpoint(event, context):
     """
 
@@ -135,10 +135,7 @@ def endpoint(event, context):
         }
 
         data = get_default_arguments(event['body'])
-        if 'text' not in data:
-            logger.info('Missing text')
-            response['body'] = json.dumps({'err': 'The text parameter is required'})
-        elif satisfies_split_conditions(data):
+        if satisfies_split_conditions(data):
             logger.info('Creating split SVG')
             url = save_split_xml_to_s3(data)
             response['body'] = json.dumps({'s3_url': url})

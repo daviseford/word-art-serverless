@@ -16,9 +16,15 @@ websites = "[.](com|net|org|io|gov)"
 
 
 def split_into_sentences(text):
+    """
+    Assumes that newlines and bad chars have been removed from the text
+    And that the text has been lowercased
+    :param text:
+    :return:
+    """
     try:
         text = " " + text + "  "
-        text = text.replace("\n", " ")
+        # text = text.replace("\n", " ")
         text = re.sub(prefixes, "\\1<prd>", text)
         text = re.sub(websites, "<prd>\\1", text)
         if "Ph.D" in text: text = text.replace("Ph.D.", "Ph<prd>D<prd>")
@@ -29,17 +35,17 @@ def split_into_sentences(text):
         text = re.sub(" " + suffixes + "[.] " + starters, " \\1<stop> \\2", text)
         text = re.sub(" " + suffixes + "[.]", " \\1<prd>", text)
         text = re.sub(" " + caps + "[.]", " \\1<prd>", text)
-        if "”" in text: text = text.replace(".”", "”.")
+        # if "”" in text: text = text.replace(".”", "”.")
         if "\"" in text: text = text.replace(".\"", "\".")
-        if "!" in text: text = text.replace("!\"", "\"!")
-        if "?" in text: text = text.replace("?\"", "\"?")
+        # if "!" in text: text = text.replace("!\"", "\"!")
+        # if "?" in text: text = text.replace("?\"", "\"?")
         text = text.replace(".", ".<stop>")
-        text = text.replace("?", "?<stop>")
-        text = text.replace("!", "!<stop>")
+        # text = text.replace("?", "?<stop>")
+        # text = text.replace("!", "!<stop>")
         text = text.replace("<prd>", ".")
         sentences = text.split("<stop>")
         sentences = sentences[:-1]
-        sentences = [s.strip().lower() for s in sentences]
+        sentences = [s.strip() for s in sentences]
         return sentences
     except Exception as e:
         traceback.print_exc()
