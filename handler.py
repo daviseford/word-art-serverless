@@ -42,6 +42,17 @@ def plot_lengths(array_of_ints):
     return path_str
 
 
+def get_paths(text):
+    """
+
+    :param text:
+    :return:
+    """
+    sentence_lengths = get_sentence_lengths(text)
+    path_str = plot_lengths(sentence_lengths)
+    return parse_path(path_str)
+
+
 def save_xml_to_s3(json_obj):
     """
 
@@ -49,12 +60,9 @@ def save_xml_to_s3(json_obj):
     :return: str
     """
     try:
-        sentence_lengths = get_sentence_lengths(json_obj.get('text', 'a. couple. sentences.'))
-        logger.info('node_colors = %s' % json_obj['node_colors'])
-        node_colors = 'bb'
+        paths = get_paths(json_obj['text'])
+        node_colors = json_obj.get('node_colors', 'bb')
         colors = json_obj.get('colors', 'b')
-        path_str = plot_lengths(sentence_lengths)
-        paths = parse_path(path_str)
         url = davis_disvg(
             paths=paths,
             node_colors=node_colors,

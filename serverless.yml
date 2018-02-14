@@ -9,9 +9,7 @@ provider:
   iamRoleStatements:
     - Effect: Allow
       Action:
-        - s3:PutObject
-        - s3:GetObject
-        - s3:ListBucket
+        - s3:*
       Resource: "arn:aws:s3:::word-art-svgs*"
 
 # https://github.com/UnitedIncome/serverless-python-requirements

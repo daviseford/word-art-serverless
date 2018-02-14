@@ -34,7 +34,13 @@ Cache-Control: no-cache
 Postman-Token: 87c7679b-0719-608d-016a-f10e6f00b276
 
 {
-	"text" : "I guess various sentences may lead to various structures. A short one. Then a quick twist and run, further than we'd anticipated. I guess. Well, I know that one thing is for certain - long, run on sentences have a place here. But. So do quick. Tight little TUrns. Another tactic would be to send out a long, long sentence, broken up by not much else than the occasinal - dash out of nowhere, how surprising. Some random text that I'm typing."
+	"text" : "I guess various sentences may lead to various structures. 
+	          A short one. Then a quick twist and run, further than we'd anticipated. 
+	          I guess. Well, I know that one thing is for certain - long, 
+	          run on sentences have a place here. But! So do quick ones. Tight little turns. 
+	          Another tactic would be to send out a long, long sentence, broken up by not 
+	          much else other than the occasional - well, yes, that - out of nowhere, how surprising. 
+	          The more sentences, the merrier. Try giving me a whole book :)"
 }
 ```
 
