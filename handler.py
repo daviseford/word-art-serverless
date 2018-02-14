@@ -10,6 +10,7 @@ from svgpathtools import parse_path
 
 from custom_svg import davis_disvg
 from parse_sentences import split_into_sentences
+from svg_split import save_split_xml_to_s3
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -61,8 +62,8 @@ def save_xml_to_s3(json_obj):
     """
     try:
         paths = get_paths(json_obj['text'])
-        node_colors = json_obj.get('node_colors', 'bb')
-        colors = json_obj.get('colors', 'b')
+        node_colors = json_obj.get('node_colors', ['#FF4C4C', '#CC0000'])
+        colors = json_obj.get('color', ['#2C41FF'])
         url = davis_disvg(
             paths=paths,
             node_colors=node_colors,
@@ -75,22 +76,44 @@ def save_xml_to_s3(json_obj):
         return 'Error building xml_string: %s' % str(e)
 
 
+def satisfies_split_conditions(json_obj):
+    """
+
+    :param json_obj:
+    :return: bool
+    """
+    if 'split' not in json_obj or json_obj.get('split', None) is None:
+        return False
+    split = json_obj['split']
+    if 'words' not in split or 'color' not in split or '#' not in json_obj['color']:
+        return False
+    if len(split['words']) == 0 or '#' not in split['color']:
+        return False
+
+    return True
+
+
 def endpoint(event, context):
     """
 
-    :param opts: { "text": "", "colors": "black", "node_colors": "rr" }
-    :return: svg file
+    :param event:
+    :param context:
+    :return:
     """
     try:
         response = {
             'statusCode': 200,
         }
 
-        data = event['body']
+        data = json.loads(event['body'])
         if 'text' not in data:
             response['body'] = 'Missing text'
+        elif satisfies_split_conditions(data):
+            logger.info('Creating split SVG')
+            url = save_split_xml_to_s3(data)
+            response['body'] = json.dumps({'s3_url': url})
         else:
-            url = save_xml_to_s3(json.loads(data))
+            url = save_xml_to_s3(data)
             response['body'] = json.dumps({'s3_url': url})
 
         logger.info('Endpoint Response:')
