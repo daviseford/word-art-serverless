@@ -31,7 +31,7 @@ First, take care of the requirements:
 
 4. `sls plugin install -n serverless-python-requirements`
 
-5. **Requires Docker**
+5. **Requires Docker (serverless-python-requirements uses Docker to build)**
 
 ### Commands
 

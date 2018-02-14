@@ -3,8 +3,12 @@ try:
 except ImportError:
     pass
 
+import logging
 import string
 import traceback
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 from svgpathtools import parse_path
 
@@ -35,6 +39,7 @@ def get_sentences(input_text, split_dict, primary_color):
         return store
     except Exception as e:
         traceback.print_exc()
+        logger.info(e)
         raise e
 
 
@@ -102,8 +107,13 @@ def build_path_str(json_obj):
     :param input_text: str
     :return: [{'color':'red','path':Path()}]
     """
-    sentence_lengths = get_sentences(json_obj['text'], json_obj['split'], json_obj['color'])
-    return plot_lengths(sentence_lengths)
+    try:
+        sentence_lengths = get_sentences(json_obj['text'], json_obj['split'], json_obj['color'])
+        return plot_lengths(sentence_lengths)
+    except Exception as e:
+        logger.info(e)
+        traceback.print_exc()
+        return []
 
 
 def save_split_xml_to_s3(json_obj):
@@ -114,7 +124,7 @@ def save_split_xml_to_s3(json_obj):
     """
     try:
         paths = build_path_str(json_obj)
-        node_colors = json_obj.get('node_colors', ['#4CFF57', '#007F08'])
+        node_colors = json_obj['node_colors']
 
         url = davis_disvg(
             paths=[x['path'] for x in paths],

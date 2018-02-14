@@ -63,12 +63,10 @@ def save_xml_to_s3(json_obj):
     """
     try:
         paths = get_paths(json_obj['text'])
-        node_colors = json_obj.get('node_colors', ['#FF4C4C', '#CC0000'])
-        colors = json_obj.get('color', '#2C41FF')
         url = davis_disvg(
             paths=paths,
-            node_colors=node_colors,
-            colors=[colors],
+            node_colors=json_obj['node_colors'],
+            colors=[json_obj['color']],
             nodes=[paths.point(0.0), paths.point(1.0)],
             node_radii=[2, 2],
         )
@@ -89,10 +87,35 @@ def satisfies_split_conditions(json_obj):
     split = json_obj['split']
     if 'words' not in split or 'color' not in split or '#' not in json_obj['color']:
         return False
+    if split['words'] is None or split['color'] is None:
+        return False
     if len(split['words']) == 0 or '#' not in split['color']:
         return False
 
     return True
+
+
+def get_default_arguments(event_body):
+    defaults = {'text': 'sample. text.', 'node_colors': ['#4CFF57', '#007F08'], 'color': '#2C41FF', 'split': None}
+
+    try:
+        json_obj = json.loads(event_body)
+        if json_obj is None:
+            return defaults
+
+        split = json_obj.get('split', None)
+        if split is not None:
+            split['words'] = split.get('words', ['default'])
+            split['color'] = split.get('color', '#FF69B4')
+
+        return {
+            'text': json_obj.get('text', defaults['text']),
+            'node_colors': json_obj.get('node_colors', defaults['node_colors']),
+            'color': json_obj.get('color', defaults['color']),
+            'split': split
+        }
+    except:
+        return defaults
 
 
 def endpoint(event, context):
@@ -105,13 +128,16 @@ def endpoint(event, context):
     try:
         response = {
             'statusCode': 200,
+            'headers': {
+                'Access-Control-Allow-Origin': '*',  # Required for CORS support to work
+                'Access-Control-Allow-Credentials': True,  # Required for cookies, authorization headers with HTTPS
+            }
         }
 
-        data = json.loads(event['body'])
-
+        data = get_default_arguments(event['body'])
         if 'text' not in data:
             logger.info('Missing text')
-            response['body'] = 'Missing text'
+            response['body'] = json.dumps({'err': 'The text parameter is required'})
         elif satisfies_split_conditions(data):
             logger.info('Creating split SVG')
             url = save_split_xml_to_s3(data)
@@ -125,6 +151,13 @@ def endpoint(event, context):
         return response
     except Exception as e:
         logger.info('Incoming data for this error:')
-        logger.info(json.loads(event['body']))
+        logger.info(event)
         logger.info(e)
-        return {'statusCode': 300, 'body': str(e)}
+        return {
+            'statusCode': 500,
+            'headers': {
+                'Access-Control-Allow-Origin': '*',  # Required for CORS support to work
+                'Access-Control-Allow-Credentials': True,  # Required for cookies, authorization headers with HTTPS
+            },
+            'body': json.dumps({'err': str(e)})
+        }
