@@ -62,7 +62,14 @@ def save_xml_to_s3(json_obj):
     :return: str
     """
     try:
-        paths = get_paths(json_obj['text'])
+        if json_obj['simple_pre_parsed'] is not None and len(json_obj['simple_pre_parsed']) > 0:
+            logger.info('Using simple_pre_parsed calculations with %s sentences' % len(json_obj['simple_pre_parsed']))
+            path_str = plot_lengths(json_obj['simple_pre_parsed'])
+            paths = parse_path(plot_lengths(path_str))
+        else:
+            logger.info('Using simple get_paths calculations')
+            paths = get_paths(json_obj['text'])
+
         url = davis_disvg(
             paths=paths,
             node_colors=json_obj['node_colors'],
@@ -85,18 +92,15 @@ def satisfies_split_conditions(json_obj):
     if 'split' not in json_obj or json_obj.get('split', None) is None:
         return False
     split = json_obj['split']
-    if 'words' not in split or 'color' not in split or '#' not in json_obj['color']:
-        return False
-    if split['words'] is None or split['color'] is None:
-        return False
-    if len(split['words']) == 0 or '#' not in split['color']:
+    if 'words' not in split or split['words'] is None or len(split['words']) == 0:
         return False
 
     return True
 
 
 def get_default_arguments(event_body):
-    defaults = {'text': 'sample. text.', 'node_colors': ['#4CFF57', '#007F08'], 'color': '#2C41FF', 'split': None}
+    defaults = {'text': 'sample. text.', 'node_colors': ['#4CFF57', '#007F08'],
+                'color': '#2C41FF', 'split': None, 'simple_pre_parsed': None, 'split_pre_parsed': None}
 
     try:
         json_obj = json.loads(event_body)
@@ -105,17 +109,20 @@ def get_default_arguments(event_body):
 
         split = json_obj.get('split', None)
         if split is not None:
-            split['words'] = split.get('words', ['default'])
+            split['words'] = split.get('words', ['love'])
             split['color'] = split.get('color', '#FF69B4')
 
         return {
             'text': json_obj.get('text', defaults['text']),
             'node_colors': json_obj.get('node_colors', defaults['node_colors']),
             'color': json_obj.get('color', defaults['color']),
-            'split': split
+            'split': split,
+            'simple_pre_parsed': json_obj.get('simple_pre_parsed', defaults['simple_pre_parsed']),
+            'split_pre_parsed': json_obj.get('split_pre_parsed', defaults['split_pre_parsed']),
         }
     except:
         return defaults
+
 
 # TODO Add a "pre-parsed" parameter to speed this up
 def endpoint(event, context):
@@ -150,6 +157,7 @@ def endpoint(event, context):
         logger.info('Incoming data for this error:')
         logger.info(event)
         logger.info(e)
+        traceback.print_exc()
         return {
             'statusCode': 500,
             'headers': {

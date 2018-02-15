@@ -123,7 +123,13 @@ def save_split_xml_to_s3(json_obj):
     :return:
     """
     try:
-        paths = build_path_str(json_obj)
+        if json_obj['split_pre_parsed'] is not None and len(json_obj['split_pre_parsed']) > 0:
+            logger.info('Using split_pre_parsed calculations with %s sentences' % len(json_obj['split_pre_parsed']))
+            paths = plot_lengths(json_obj['split_pre_parsed'])
+        else:
+            logger.info('Using split get_paths calculations')
+            paths = build_path_str(json_obj)
+
         node_colors = json_obj['node_colors']
 
         url = davis_disvg(
