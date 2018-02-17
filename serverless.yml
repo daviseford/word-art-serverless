@@ -6,7 +6,7 @@ provider:
   runtime: python2.7
   region: us-east-1
   stage: dev
-  timeout: 120 # optional, in seconds, default is 6
+  timeout: 240 # optional, in seconds, default is 6
   iamRoleStatements:
     - Effect: Allow
       Action:
