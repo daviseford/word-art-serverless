@@ -87,12 +87,13 @@ def save_svg(xml_string, checksum=None):
     """
     if checksum is None:
         checksum = get_checksum(xml_string)  # Get checksum of this file
+        dupe_check = is_duplicate_checksum(checksum)  # Make sure it's unique
+        if dupe_check is not None:
+            logger.info('Duplicate detected for %s' % checksum)
+            return dupe_check  # If dupe_check has a value, it's a URL to an existing (duplicate) file.
 
-    dupe_check = is_duplicate_checksum(checksum)  # Make sure it's unique
-    if dupe_check is not None:
-        logger.info('Duplicate detected for %s' % checksum)
-        return dupe_check  # If dupe_check has a value, it's a URL to an existing (duplicate) file.
-
+    # Usually, we've already checked for a duplicate - the above logic is just for cases
+    # where we need to generate the checksum on the backend
     filename = get_filename(checksum)
     url = upload_svg(filename, xml_string)
     return url

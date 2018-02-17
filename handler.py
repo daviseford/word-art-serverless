@@ -166,6 +166,7 @@ def endpoint(event, context):
         existing_url = is_duplicate_checksum(json_obj['checksum'])
 
         if existing_url is not None:
+            logger.info('Duplicate detected for %s' % json_obj['checksum'])
             response['body'] = json.dumps({'s3_url': existing_url})
         elif satisfies_split_conditions(json_obj):
             logger.info('Creating split SVG')
