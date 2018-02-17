@@ -121,9 +121,9 @@ class Drawing(SVG, ElementFactory):
         except Exception as e:
             raise e
 
-    def save_to_s3(self, pretty=False):
+    def save_to_s3(self, checksum=None, pretty=False):
         try:
             xml_string = ''.join(self.write_str(pretty=pretty))
-            return save_svg(xml_string)
+            return save_svg(xml_string, checksum)
         except Exception as e:
             raise e

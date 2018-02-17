@@ -88,7 +88,7 @@ def davis_disvg(paths=None, colors=None, stroke_widths=None, nodes=None,
                 node_colors=None, node_radii=None, margin_size=0.1,
                 mindim=600, dimensions=None, viewbox=None,
                 text=None, text_path=None, font_size=None,
-                attributes=None, svg_attributes=None):
+                attributes=None, svg_attributes=None, checksum=None):
     """Takes in a list of paths and creates an SVG file containing said paths.
     REQUIRED INPUTS:
         :param paths - a list of paths
@@ -144,6 +144,9 @@ def davis_disvg(paths=None, colors=None, stroke_widths=None, nodes=None,
         Note 1: This will override any other conflicting settings.
         Note 2: Setting `svg_attributes={'debug': False}` may result in a
         significant increase in speed.
+
+        :param checksum - a string to be used for the filename, or None
+        If None, a checksum will be generated herez
 
     NOTES:
         -The unit of length here is assumed to be pixels in all variables.
@@ -328,6 +331,6 @@ def davis_disvg(paths=None, colors=None, stroke_widths=None, nodes=None,
                 txter = dwg.add(dwg.text('', font_size=font_size[idx]))
                 txter.add(txt.TextPath('#' + pathid, s))
 
-        return dwg.save_to_s3()
+        return dwg.save_to_s3(checksum)
     except Exception as e:
         raise e

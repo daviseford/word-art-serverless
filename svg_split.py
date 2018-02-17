@@ -101,6 +101,20 @@ def plot_lengths(a):
     return path_store
 
 
+def build_pre_parsed_path_str(json_obj):
+    """
+
+    :param input_text: str
+    :return: [{'color':'red','path':Path()}]
+    """
+    try:
+        return plot_lengths(json_obj['split_pre_parsed'])
+    except Exception as e:
+        logger.info(e)
+        traceback.print_exc()
+        return []
+
+
 def build_path_str(json_obj):
     """
 
@@ -125,19 +139,18 @@ def save_split_xml_to_s3(json_obj):
     try:
         if json_obj['split_pre_parsed'] is not None and len(json_obj['split_pre_parsed']) > 0:
             logger.info('Using split_pre_parsed calculations with %s sentences' % len(json_obj['split_pre_parsed']))
-            paths = plot_lengths(json_obj['split_pre_parsed'])
+            paths = build_pre_parsed_path_str(json_obj)
         else:
             logger.info('Using split get_paths calculations')
             paths = build_path_str(json_obj)
-
-        node_colors = json_obj['node_colors']
 
         url = davis_disvg(
             paths=[x['path'] for x in paths],
             colors=[x['color'] for x in paths],
             nodes=[paths[0]['path'].point(0.0), paths[-1]['path'].point(1.0)],
-            node_colors=node_colors,
+            node_colors=json_obj['node_colors'],
             node_radii=[2, 2],
+            checksum=json_obj['checksum']
         )
 
         return url

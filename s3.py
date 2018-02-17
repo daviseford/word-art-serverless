@@ -74,7 +74,7 @@ def upload_svg(filename, xml_string):
     return 'https://s3.amazonaws.com/%s/%s' % (BUCKET, filename)
 
 
-def save_svg(xml_string):
+def save_svg(xml_string, checksum=None):
     """
     Saves an XML string as a unique (checksummed) file in S3
     And returns the URL of the file
@@ -82,9 +82,12 @@ def save_svg(xml_string):
     Checks for duplicates along the way using sha1 to find collisions
 
     :param xml_string:
+    :param checksum: str|None
     :return: str
     """
-    checksum = get_checksum(xml_string)  # Get checksum of this file
+    if checksum is None:
+        checksum = get_checksum(xml_string)  # Get checksum of this file
+
     dupe_check = is_duplicate_checksum(checksum)  # Make sure it's unique
     if dupe_check is not None:
         logger.info('Duplicate detected for %s' % checksum)

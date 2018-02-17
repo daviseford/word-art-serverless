@@ -10,7 +10,7 @@ import traceback
 from svgpathtools import parse_path
 
 from custom_svg import davis_disvg
-from parse_sentences import split_into_sentences
+from parse_sentences import split_into_sentence_lengths
 from svg_split import save_split_xml_to_s3
 
 logger = logging.getLogger(__name__)
@@ -27,8 +27,8 @@ def get_sentence_lengths(input_text):
     :param input_text: str
     :return:
     """
-    sentences = split_into_sentences(input_text)
-    return filter_length(sentences)
+    sentence_lengths = split_into_sentence_lengths(input_text)
+    return sentence_lengths
 
 
 def plot_lengths(array_of_ints):
@@ -37,11 +37,15 @@ def plot_lengths(array_of_ints):
     path_str = 'M50 20j'
     count = 0
     for num in array_of_ints:
-        move = behavior_ref[count] + str(num)
+        move = '%s%s' % (behavior_ref[count], num)
         path_str = ' '.join([path_str, move])
         count = 0 if count == 3 else count + 1
 
     return path_str
+
+
+def get_simple_preparsed_paths(simple_path):
+    return parse_path(simple_path)
 
 
 def get_paths(text):
@@ -62,10 +66,9 @@ def save_xml_to_s3(json_obj):
     :return: str
     """
     try:
-        if json_obj['simple_pre_parsed'] is not None and len(json_obj['simple_pre_parsed']) > 0:
-            logger.info('Using simple_pre_parsed calculations with %s sentences' % len(json_obj['simple_pre_parsed']))
-            path_str = plot_lengths(json_obj['simple_pre_parsed'])
-            paths = parse_path(plot_lengths(path_str))
+        if json_obj['simple_path'] is not None and len(json_obj['simple_path']) > 0:
+            logger.info('Using simple_path parameter')
+            paths = get_simple_preparsed_paths(json_obj['simple_path'])
         else:
             logger.info('Using simple get_paths calculations')
             paths = get_paths(json_obj['text'])
@@ -76,6 +79,7 @@ def save_xml_to_s3(json_obj):
             colors=[json_obj['color']],
             nodes=[paths.point(0.0), paths.point(1.0)],
             node_radii=[2, 2],
+            checksum=json_obj['checksum'],
         )
         return url
     except Exception as e:
@@ -99,8 +103,12 @@ def satisfies_split_conditions(json_obj):
 
 
 def get_default_arguments(event_body):
-    defaults = {'text': 'sample. text.', 'node_colors': ['#4CFF57', '#007F08'],
-                'color': '#2C41FF', 'split': None, 'simple_pre_parsed': None, 'split_pre_parsed': None}
+    defaults = {
+        'text': 'sample. text.', 'node_colors': ['#4CFF57', '#007F08'],
+        'color': '#2C41FF', 'split': None, 'simple_pre_parsed': None,
+        'split_pre_parsed': None, 'simple_path': None, 'split_path': None,
+        'checksum': None
+    }
 
     try:
         json_obj = json.loads(event_body)
@@ -119,12 +127,14 @@ def get_default_arguments(event_body):
             'split': split,
             'simple_pre_parsed': json_obj.get('simple_pre_parsed', defaults['simple_pre_parsed']),
             'split_pre_parsed': json_obj.get('split_pre_parsed', defaults['split_pre_parsed']),
+            'simple_path': json_obj.get('simple_path', defaults['simple_path']),
+            'split_path': json_obj.get('split_path', defaults['split_path']),
+            'checksum': json_obj.get('checksum', defaults['checksum'])
         }
     except:
         return defaults
 
 
-# TODO Add a "pre-parsed" parameter to speed this up
 def endpoint(event, context):
     """
 
@@ -141,13 +151,13 @@ def endpoint(event, context):
             }
         }
 
-        data = get_default_arguments(event['body'])
-        if satisfies_split_conditions(data):
+        json_obj = get_default_arguments(event['body'])
+        if satisfies_split_conditions(json_obj):
             logger.info('Creating split SVG')
-            url = save_split_xml_to_s3(data)
+            url = save_split_xml_to_s3(json_obj)
             response['body'] = json.dumps({'s3_url': url})
         else:
-            url = save_xml_to_s3(data)
+            url = save_xml_to_s3(json_obj)
             response['body'] = json.dumps({'s3_url': url})
 
         logger.info('Endpoint Response:')
