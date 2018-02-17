@@ -104,8 +104,8 @@ def satisfies_split_conditions(json_obj):
 
 def get_default_arguments(event_body):
     defaults = {
-        'text': 'sample. text.', 'node_colors': ['#4CFF57', '#007F08'],
-        'color': '#2C41FF', 'split': None, 'simple_pre_parsed': None,
+        'text': 'sample. text.', 'node_colors': ['#F26101', '#F26101'],
+        'color': '#14B6D4', 'split': None, 'simple_pre_parsed': None,
         'split_pre_parsed': None, 'simple_path': None, 'split_path': None,
         'checksum': None
     }
@@ -118,11 +118,14 @@ def get_default_arguments(event_body):
         split = json_obj.get('split', None)
         if split is not None:
             split['words'] = split.get('words', ['love'])
-            split['color'] = split.get('color', '#FF69B4')
+            split['color'] = split.get('color', '#F22F00')
+
+        node_colors = json_obj.get('node_colors', defaults['node_colors'])
+        node_colors = [defaults['node_colors'][0] if color is None else color for color in node_colors]
 
         return {
             'text': json_obj.get('text', defaults['text']),
-            'node_colors': json_obj.get('node_colors', defaults['node_colors']),
+            'node_colors': node_colors,
             'color': json_obj.get('color', defaults['color']),
             'split': split,
             'simple_pre_parsed': json_obj.get('simple_pre_parsed', defaults['simple_pre_parsed']),
