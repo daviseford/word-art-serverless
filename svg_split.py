@@ -144,13 +144,17 @@ def save_split_xml_to_s3(json_obj):
             logger.info('Using split get_paths calculations')
             paths = build_path_str(json_obj)
 
+        if json_obj['node_colors'] is not None:
+            node_opts = {'node_colors': json_obj['node_colors'], 'node_radii': [1, 1]}
+        else:
+            node_opts = {}
+
         url = davis_disvg(
             paths=[x['path'] for x in paths],
             colors=[x['color'] for x in paths],
             nodes=[paths[0]['path'].point(0.0), paths[-1]['path'].point(1.0)],
-            node_colors=json_obj['node_colors'],
-            node_radii=[2, 2],
-            checksum=json_obj['checksum']
+            checksum=json_obj['checksum'],
+            **node_opts
         )
 
         return url

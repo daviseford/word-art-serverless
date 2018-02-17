@@ -73,13 +73,17 @@ def save_xml_to_s3(json_obj):
             logger.info('Using simple get_paths calculations')
             paths = get_paths(json_obj['text'])
 
+        if json_obj['node_colors'] is not None:
+            node_opts = {'node_colors': json_obj['node_colors'], 'node_radii': [1, 1]}
+        else:
+            node_opts = {}
+
         url = davis_disvg(
             paths=paths,
-            node_colors=json_obj['node_colors'],
             colors=[json_obj['color']],
             nodes=[paths.point(0.0), paths.point(1.0)],
-            node_radii=[2, 2],
             checksum=json_obj['checksum'],
+            **node_opts
         )
         return url
     except Exception as e:
@@ -104,7 +108,7 @@ def satisfies_split_conditions(json_obj):
 
 def get_default_arguments(event_body):
     defaults = {
-        'text': 'sample. text.', 'node_colors': ['#F26101', '#F26101'],
+        'text': 'sample. text.', 'node_colors': None,
         'color': '#14B6D4', 'split': None, 'simple_pre_parsed': None,
         'split_pre_parsed': None, 'simple_path': None, 'split_path': None,
         'checksum': None
@@ -120,8 +124,11 @@ def get_default_arguments(event_body):
             split['words'] = split.get('words', ['love'])
             split['color'] = split.get('color', '#F22F00')
 
-        node_colors = json_obj.get('node_colors', defaults['node_colors'])
-        node_colors = [defaults['node_colors'][0] if color is None else color for color in node_colors]
+        node_colors = json_obj.get('node_colors', None)
+        if node_colors is not None:
+            node_colors = [defaults['node_colors'][0] if c is None else c for c in node_colors]
+        else:
+            node_colors = None
 
         return {
             'text': json_obj.get('text', defaults['text']),
