@@ -154,6 +154,7 @@ def save_split_xml_to_s3(json_obj):
             colors=[x['color'] for x in paths],
             nodes=[paths[0]['path'].point(0.0), paths[-1]['path'].point(1.0)],
             checksum=json_obj['checksum'],
+            bg_color=json_obj['bg_color'],
             **node_opts
         )
 

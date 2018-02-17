@@ -34,6 +34,7 @@ from svgwrite.container import SVG
 from svgwrite.elementfactory import ElementFactory
 from svgwrite.utils import pretty_xml
 from s3 import save_svg
+from colors import DEFAULT_COLORS
 
 
 class Drawing(SVG, ElementFactory):
@@ -47,10 +48,11 @@ class Drawing(SVG, ElementFactory):
     to a complex, deeply nested collection of container elements and graphics elements.
     """
 
-    def __init__(self, filename="no_name.svg", size=('100%', '100%'), **extra):
+    def __init__(self, filename="no_name.svg", size=('100%', '100%'), bg_color=DEFAULT_COLORS['bg_color'], **extra):
         """
         :param string filename: filesystem filename valid for :func:`open`
         :param 2-tuple size: width, height
+        :param bg_color: hex code
         :param keywords extra: additional svg-attributes for the *SVG* object
 
         Important (and not SVG Attributes) **extra** parameters:
@@ -61,6 +63,7 @@ class Drawing(SVG, ElementFactory):
         """
         super(Drawing, self).__init__(size=size, **extra)
         self.filename = filename
+        self.bg_color = bg_color
         self._stylesheets = []  # list of stylesheets appended
 
     def get_xml(self):
@@ -77,6 +80,7 @@ class Drawing(SVG, ElementFactory):
 
         self.attribs['baseProfile'] = profile
         self.attribs['version'] = version
+        self.attribs['style'] = 'background-color: %s;' % self.bg_color
         return super(Drawing, self).get_xml()
 
     def add_stylesheet(self, href, title, alternate="no", media="screen"):

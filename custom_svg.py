@@ -12,6 +12,7 @@ from math import ceil
 from custom_drawing import Drawing
 from svgwrite import text as txt
 from warnings import warn
+from colors import DEFAULT_COLORS
 
 # Internal dependencies
 from svgpathtools import Path, Line, is_path_segment
@@ -88,7 +89,7 @@ def davis_disvg(paths=None, colors=None, stroke_widths=None, nodes=None,
                 node_colors=None, node_radii=None, margin_size=0.1,
                 mindim=600, dimensions=None, viewbox=None,
                 text=None, text_path=None, font_size=None,
-                attributes=None, svg_attributes=None, checksum=None):
+                attributes=None, svg_attributes=None, checksum=None, bg_color=DEFAULT_COLORS['bg_color']):
     """Takes in a list of paths and creates an SVG file containing said paths.
     REQUIRED INPUTS:
         :param paths - a list of paths
@@ -146,7 +147,9 @@ def davis_disvg(paths=None, colors=None, stroke_widths=None, nodes=None,
         significant increase in speed.
 
         :param checksum - a string to be used for the filename, or None
-        If None, a checksum will be generated herez
+        If None, a checksum will be generated here
+
+        :param bg_color - a hex code applied to the SVG. Defaults to white (#FFF)
 
     NOTES:
         -The unit of length here is assumed to be pixels in all variables.
@@ -161,8 +164,8 @@ def davis_disvg(paths=None, colors=None, stroke_widths=None, nodes=None,
     try:
         _default_relative_node_radius = 5e-3
         _default_relative_stroke_width = 1e-3
-        _default_path_color = '#000000'  # black
-        _default_node_color = '#ff0000'  # red
+        _default_path_color = DEFAULT_COLORS['color']  # black
+        _default_node_color = DEFAULT_COLORS['node_colors']  # red
         _default_font_size = 12
 
         # check paths and colors are set
@@ -259,9 +262,9 @@ def davis_disvg(paths=None, colors=None, stroke_widths=None, nodes=None,
 
         # Create an SVG file
         if svg_attributes:
-            dwg = Drawing(filename='no_name.svg', **svg_attributes)
+            dwg = Drawing(filename='no_name.svg', bg_color=bg_color, **svg_attributes)
         else:
-            dwg = Drawing(filename='no_name.svg', size=(szx, szy), viewBox=viewbox)
+            dwg = Drawing(filename='no_name.svg', size=(szx, szy), bg_color=bg_color, viewBox=viewbox)
 
         # add paths
         if paths:
@@ -331,6 +334,6 @@ def davis_disvg(paths=None, colors=None, stroke_widths=None, nodes=None,
                 txter = dwg.add(dwg.text('', font_size=font_size[idx]))
                 txter.add(txt.TextPath('#' + pathid, s))
 
-        return dwg.save_to_s3(checksum)
+        return dwg.save_to_s3(checksum=checksum)
     except Exception as e:
         raise e

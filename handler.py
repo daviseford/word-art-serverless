@@ -9,6 +9,7 @@ import traceback
 
 from svgpathtools import parse_path
 
+from colors import DEFAULT_COLORS
 from custom_svg import davis_disvg
 from parse_sentences import split_into_sentence_lengths
 from s3 import is_duplicate_checksum
@@ -84,6 +85,7 @@ def save_xml_to_s3(json_obj):
             colors=[json_obj['color']],
             nodes=[paths.point(0.0), paths.point(1.0)],
             checksum=json_obj['checksum'],
+            bg_color=json_obj['bg_color'],
             **node_opts
         )
         return url
@@ -110,9 +112,9 @@ def satisfies_split_conditions(json_obj):
 def get_default_arguments(event_body):
     defaults = {
         'text': 'sample. text.', 'node_colors': None,
-        'color': '#14B6D4', 'split': None, 'simple_pre_parsed': None,
+        'color': DEFAULT_COLORS['color'], 'split': None, 'simple_pre_parsed': None,
         'split_pre_parsed': None, 'simple_path': None, 'split_path': None,
-        'checksum': None
+        'checksum': None, 'bg_color': DEFAULT_COLORS['bg_color']
     }
 
     try:
@@ -123,11 +125,11 @@ def get_default_arguments(event_body):
         split = json_obj.get('split', None)
         if split is not None:
             split['words'] = split.get('words', ['love'])
-            split['color'] = split.get('color', '#F22F00')
+            split['color'] = split.get('color', DEFAULT_COLORS['split_color'])
 
         node_colors = json_obj.get('node_colors', defaults['node_colors'])
         if node_colors is not None:
-            node_colors = ['#F26101' if c is None else c for c in node_colors]
+            node_colors = [DEFAULT_COLORS['node_colors'] if c is None else c for c in node_colors]
         else:
             node_colors = None
 
@@ -140,7 +142,8 @@ def get_default_arguments(event_body):
             'split_pre_parsed': json_obj.get('split_pre_parsed', defaults['split_pre_parsed']),
             'simple_path': json_obj.get('simple_path', defaults['simple_path']),
             'split_path': json_obj.get('split_path', defaults['split_path']),
-            'checksum': json_obj.get('checksum', defaults['checksum'])
+            'checksum': json_obj.get('checksum', defaults['checksum']),
+            'bg_color': json_obj.get('bg_color', defaults['bg_color'])
         }
     except:
         return defaults
