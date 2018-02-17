@@ -11,6 +11,7 @@ from svgpathtools import parse_path
 
 from custom_svg import davis_disvg
 from parse_sentences import split_into_sentence_lengths
+from s3 import is_duplicate_checksum
 from svg_split import save_split_xml_to_s3
 
 logger = logging.getLogger(__name__)
@@ -76,7 +77,7 @@ def save_xml_to_s3(json_obj):
         if json_obj['node_colors'] is not None:
             node_opts = {'node_colors': json_obj['node_colors'], 'node_radii': [1, 1]}
         else:
-            node_opts = {}
+            node_opts = {'node_colors': None, 'node_radii': [0, 0]}
 
         url = davis_disvg(
             paths=paths,
@@ -124,9 +125,9 @@ def get_default_arguments(event_body):
             split['words'] = split.get('words', ['love'])
             split['color'] = split.get('color', '#F22F00')
 
-        node_colors = json_obj.get('node_colors', None)
+        node_colors = json_obj.get('node_colors', defaults['node_colors'])
         if node_colors is not None:
-            node_colors = [defaults['node_colors'][0] if c is None else c for c in node_colors]
+            node_colors = ['#F26101' if c is None else c for c in node_colors]
         else:
             node_colors = None
 
@@ -162,7 +163,11 @@ def endpoint(event, context):
         }
 
         json_obj = get_default_arguments(event['body'])
-        if satisfies_split_conditions(json_obj):
+        existing_url = is_duplicate_checksum(json_obj['checksum'])
+
+        if existing_url is not None:
+            response['body'] = json.dumps({'s3_url': existing_url})
+        elif satisfies_split_conditions(json_obj):
             logger.info('Creating split SVG')
             url = save_split_xml_to_s3(json_obj)
             response['body'] = json.dumps({'s3_url': url})

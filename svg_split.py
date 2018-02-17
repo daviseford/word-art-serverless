@@ -147,7 +147,7 @@ def save_split_xml_to_s3(json_obj):
         if json_obj['node_colors'] is not None:
             node_opts = {'node_colors': json_obj['node_colors'], 'node_radii': [1, 1]}
         else:
-            node_opts = {}
+            node_opts = {'node_colors': None, 'node_radii': [0, 0]}
 
         url = davis_disvg(
             paths=[x['path'] for x in paths],
