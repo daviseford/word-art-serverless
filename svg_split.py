@@ -129,6 +129,19 @@ def build_path_str(json_obj):
         traceback.print_exc()
         return []
 
+def satisfies_split_conditions(json_obj):
+    """
+
+    :param json_obj:
+    :return: bool
+    """
+    if 'split' not in json_obj or json_obj.get('split', None) is None:
+        return False
+    split = json_obj['split']
+    if 'words' not in split or split['words'] is None or len(split['words']) == 0:
+        return False
+
+    return True
 
 def save_split_xml_to_s3(json_obj):
     """

@@ -87,7 +87,7 @@ def big_bounding_box(paths_n_stuff):
 
 def davis_disvg(paths=None, colors=None, stroke_widths=None, nodes=None,
                 node_colors=None, node_radii=None, margin_size=0.1,
-                mindim=600, dimensions=None, viewbox=None,
+                mindim=2000, dimensions=None, viewbox=None,
                 text=None, text_path=None, font_size=None,
                 attributes=None, svg_attributes=None, checksum=None, bg_color=DEFAULT_COLORS['bg_color']):
     """Takes in a list of paths and creates an SVG file containing said paths.

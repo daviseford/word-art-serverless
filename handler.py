@@ -10,25 +10,10 @@ import traceback
 from colors import DEFAULT_COLORS
 from s3 import is_duplicate_checksum
 from svg_simple import save_simple_xml_to_s3
-from svg_split import save_split_xml_to_s3
+from svg_split import save_split_xml_to_s3, satisfies_split_conditions
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-
-
-def satisfies_split_conditions(json_obj):
-    """
-
-    :param json_obj:
-    :return: bool
-    """
-    if 'split' not in json_obj or json_obj.get('split', None) is None:
-        return False
-    split = json_obj['split']
-    if 'words' not in split or split['words'] is None or len(split['words']) == 0:
-        return False
-
-    return True
 
 
 def get_default_arguments(event_body):
