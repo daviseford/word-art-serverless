@@ -75,19 +75,24 @@ def endpoint(event, context):
         json_obj = get_default_arguments(event['body'])
         existing_url = is_duplicate_checksum(json_obj['checksum'])
 
+        res_body = {'arguments': json_obj, 'duplicate': False}
+
         if existing_url is not None:
             logger.info('Duplicate detected for %s' % json_obj['checksum'])
-            response['body'] = json.dumps({'s3_url': existing_url})
+            res_body['s3_url'] = existing_url
+            res_body['duplicate'] = True
         elif satisfies_split_conditions(json_obj):
             logger.info('Creating split SVG')
             url = save_split_xml_to_s3(json_obj)
-            response['body'] = json.dumps({'s3_url': url})
+            res_body['s3_url'] = url
         else:
             url = save_simple_xml_to_s3(json_obj)
-            response['body'] = json.dumps({'s3_url': url})
+            res_body['s3_url'] = url
 
+        response['body'] = json.dumps(res_body)
         logger.info('Endpoint Response:')
         logger.info(response)
+
         return response
     except Exception as e:
         logger.info('Incoming data for this error:')
