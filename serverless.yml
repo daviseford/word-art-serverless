@@ -6,7 +6,8 @@ provider:
   runtime: python2.7
   region: us-east-1
   stage: dev
-  timeout: 300 # optional, in seconds, default is 6
+  memorySize: 3000  # Overwrite the default memory size. Default is 1024
+  timeout: 300      # Optional, in seconds, default is 6
   iamRoleStatements:
     - Effect: Allow
       Action:
